@@ -1,5 +1,6 @@
 package com.linhard.martin.musicplayer
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +21,6 @@ class MainActivity : AppCompatActivity() {
 
         albumRecyclerView = findViewById(R.id.album_rv)
         albumRecyclerView.layoutManager = LinearLayoutManager(this.applicationContext)
-        albumRecyclerView.adapter = AlbumAdapter(albums)
+        albumRecyclerView.adapter = AlbumAdapter(albums, this.applicationContext)
     }
 }

@@ -1,5 +1,6 @@
 package com.linhard.martin.musicplayer.mainactivity
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,14 +11,15 @@ import com.linhard.martin.musicplayer.R
 import com.linhard.martin.musicplayer.beans.Album
 
 class AlbumAdapter(
-    private var albums: List<Album>
+    private var albums: List<Album>,
+    private val context: Context
 ) : RecyclerView.Adapter<AlbumViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumViewHolder {
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.album_item, parent, false)
         val albumPlayImage = layout.findViewById<ImageButton>(R.id.album_play_button)
         val albumTitle = layout.findViewById<TextView>(R.id.album_title)
-        return AlbumViewHolder(layout, albumTitle, albumPlayImage)
+        return AlbumViewHolder(layout, albumTitle, albumPlayImage, context)
     }
 
     override fun getItemCount(): Int {
